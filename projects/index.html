@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 JavaScript Projects</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --bg-primary: #fafafa;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f5f5f5;
+            --text-primary: #0a0a0a;
+            --text-secondary: #525252;
+            --text-muted: #737373;
+            --border-primary: #e5e5e5;
+            --border-secondary: #d4d4d4;
+            --accent-primary: #2563eb;
+            --accent-secondary: #3b82f6;
+            --accent-success: #059669;
+            --accent-warning: #d97706;
+            --accent-purple: #7c3aed;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header {
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, var(--accent-primary) 0%, transparent 70%);
+            opacity: 0.1;
+            border-radius: 50%;
+            filter: blur(40px);
+        }
+
+        .header h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.04em;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        .header p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 32px;
+            padding: 0 0 120px;
+        }
+
+        .project-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius-xl);
+            padding: 1px;
+            background: linear-gradient(135deg, transparent, var(--border-secondary), transparent);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: xor;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--border-secondary);
+        }
+
+        .project-card:hover::before {
+            opacity: 0;
+        }
+
+        .project-header {
+            padding: 32px 32px 24px;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, var(--accent-primary) 0%, transparent 70%);
+            opacity: 0.05;
+            border-radius: 50%;
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-content {
+            padding: 32px;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .status::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .status.in-progress {
+            background: rgba(217, 119, 6, 0.1);
+            color: var(--accent-warning);
+            border: 1px solid rgba(217, 119, 6, 0.2);
+        }
+
+        .status.in-progress::before {
+            background: var(--accent-warning);
+            animation: pulse 2s infinite;
+        }
+
+        .status.planned {
+            background: rgba(124, 58, 237, 0.1);
+            color: var(--accent-purple);
+            border: 1px solid rgba(124, 58, 237, 0.2);
+        }
+
+        .status.planned::before {
+            background: var(--accent-purple);
+        }
+
+        .status.completed {
+            background: rgba(5, 150, 105, 0.1);
+            color: var(--accent-success);
+            border: 1px solid rgba(5, 150, 105, 0.2);
+        }
+
+        .status.completed::before {
+            background: var(--accent-success);
+        }
+
+        .status.on-hold {
+            background: rgba(115, 115, 115, 0.1);
+            color: var(--text-muted);
+            border: 1px solid rgba(115, 115, 115, 0.2);
+        }
+
+        .status.on-hold::before {
+            background: var(--text-muted);
+        }
+
+        .status.beta {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--accent-primary);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+        }
+
+        .status.beta::before {
+            background: var(--accent-primary);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 28px;
+        }
+
+        .tech-tag {
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid var(--border-primary);
+            transition: all 0.2s ease;
+        }
+
+        .tech-tag:hover {
+            background: var(--bg-secondary);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            font-family: inherit;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn:hover::before {
+            opacity: 1;
+        }
+
+        .btn-primary {
+            background: var(--accent-primary);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-secondary);
+        }
+
+        .btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-primary);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .footer p {
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .footer a:hover {
+            color: var(--accent-secondary);
+        }
+
+        .project-card.placeholder {
+            border: 1px dashed var(--border-secondary);
+            background: var(--bg-tertiary);
+        }
+
+        .project-card.placeholder .project-header {
+            background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-primary) 100%);
+        }
+
+        .project-card.placeholder .project-icon {
+            opacity: 0.6;
+        }
+
+        .project-card.placeholder .project-title {
+            color: var(--text-muted);
+        }
+
+        /* 애니메이션 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .header {
+                padding: 80px 0 60px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                padding: 0 0 80px;
+            }
+
+            .project-card {
+                min-width: 0;
+            }
+
+            .project-header,
+            .project-content {
+                padding: 24px;
+            }
+
+            .project-links {
+                flex-direction: column;
+            }
+
+            .btn {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* 다크모드 지원 */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-primary: #0a0a0a;
+                --bg-secondary: #111111;
+                --bg-tertiary: #1a1a1a;
+                --text-primary: #fafafa;
+                --text-secondary: #a3a3a3;
+                --text-muted: #737373;
+                --border-primary: #262626;
+                --border-secondary: #404040;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>JavaScript Projects</h1>
+            <p>학습과 실험을 위한 프로젝트 모음</p>
+        </div>
+
+        <div class="projects-grid">
+            <!-- 아코디언 메뉴 프로젝트 -->
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-icon">🎵</div>
+                    <div class="project-title">Accordion Menu</div>
+                </div>
+                <div class="project-content">
+                    <div class="status in-progress">In Progress</div>
+                    <p class="project-description">
+                      접고 펼칠 수 있는 인터랙티브한 아코디언 메뉴 컴포넌트입니다.  
+                        DOM 조작과 CSS 애니메이션을 활용한 UI 컴포넌트 구현을 학습합니다.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">DOM</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="./accordion/" class="btn btn-primary">
+                            <span>Live Demo</span>
+                            <span>→</span>
+                        </a>
+                        <a href="./accordion/README.md" class="btn btn-secondary">
+                            <span>Documentation</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 다음 프로젝트 -->
+            <div class="project-card placeholder fade-in">
+                <div class="project-header">
+                    <div class="project-icon">➕</div>
+                    <div class="project-title">Coming Soon</div>
+                </div>
+                <div class="project-content">
+                    <!-- <div class="status in-progress">In Progress</div> -->
+                    <div class="status planned">Planned</div>
+                    <!-- <div class="status beta">Beta</div>
+                    <div class="status on-hold">On Hold</div>
+                    <div class="status completed">Completed</div> -->
+                    <p class="project-description">
+                      Coming Soon
+                    </p>
+                    <div class="project-tech">
+                      <span class="tech-tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <button class="btn btn-secondary" disabled>
+                            <span>Coming Soon</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>지속적인 학습과 혁신을 통해 웹 기술의 경계를 확장합니다</p>
+            <p><a href="https://github.com/hi9900/js-playground" target="_blank">GitHub Repository</a></p>
+        </div>
+    </div>
+
+    <script>
+        // 스크롤 애니메이션
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // 버튼 클릭 효과
+        document.querySelectorAll('.btn:not(:disabled)').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => this.style.transform = '', 150);
+            });
+        });
+    </script>
+</body>
+</html> 
