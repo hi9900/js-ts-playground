@@ -26,7 +26,7 @@
 - VS Code
 - TypeScript Compiler
 
-<!-- ### 설치 명령어
+### 설치 명령어
 
 ```bash
 # TypeScript 전역 설치
@@ -34,11 +34,11 @@ npm install -g typescript
 
 # 프로젝트 초기화
 npm init -y
-npm install -D typescript @types/node
+npm install -D @types/node tsx
 
 # TypeScript 설정 파일 생성
 tsc --init
-``` -->
+```
 
 ## 🔗 유용한 리소스
 
@@ -50,19 +50,25 @@ tsc --init
 ## 📂 폴더 구조
 
 ```
+
 onebite-ts/
-├── section01/          # TypeScript 개론
-├── section02/          # TypeScript 기본
-├── section03/          # TypeScript 이해
-├── section04/          # 함수와 타입
-├── section05/          # 인터페이스
-├── section06/          # 클래스
-├── section07/          # 제네릭
-├── section08/          # 타입 조작하기
-├── section09/          # 조건부 타입
-├── section10/          # 유틸리티 타입
-├── section11/          # 보너스: 리액트와 타입스크립트
-└── README.md           # 현재 파일
+├── section01/ # TypeScript 개론
+├── section02/ # TypeScript 기본
+├── section03/ # TypeScript 이해
+├── section04/ # 함수와 타입
+├── section05/ # 인터페이스
+├── section06/ # 클래스
+├── section07/ # 제네릭
+├── section08/ # 타입 조작하기
+├── section09/ # 조건부 타입
+├── section10/ # 유틸리티 타입
+├── section11/ # 보너스: 리액트와 타입스크립트
+└── README.md # 현재 파일
+
 ```
 
 ---
+
+```
+
+```
