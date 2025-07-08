@@ -1,0 +1,15 @@
+{
+  "name": "section01",
+  "version": "1.0.0",
+  "description": "- **타입스크립트의 탄생**",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@types/node": "^24.0.10"
+  }
+}
