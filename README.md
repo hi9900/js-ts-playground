@@ -14,7 +14,7 @@ JavaScript와 TypeScript 학습과 실험을 위한 개인 연습 레포지토�
 
 ```
 js-ts-playground/
-├── basics/                    # 기본 문법 연습
+├── basics/                   # 기본 문법 연습
 ├── algorithms/               # 알고리즘
 ├── data-structures/          # 자료구조
 ├── projects/                 # 미니 프로젝트들
@@ -76,13 +76,15 @@ npx ts-node filename.ts
 
 각 폴더의 README.md 파일에 학습한 내용과 중요한 포인트들을 기록합니다.
 
+<!-- 
 ## 📊 진행 상황
 
 - 시작일: 2025-12-19
 - 현재 진행 중인 주제: 아코디언 메뉴 구현
 - 완료한 연습 문제 수: 0개
 - TypeScript 학습 시작: 예정
-
+-->
+  
 ## 🔧 개발 환경 설정
 
 ### TypeScript 설정 예시 (tsconfig.json)
