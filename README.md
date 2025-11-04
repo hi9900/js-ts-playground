@@ -14,6 +14,7 @@ JavaScript와 TypeScript 학습과 실험을 위한 개인 연습 레포지토�
 
 ```
 js-ts-playground/
+├── learning/                 # 강의/공부 기록
 ├── basics/                   # 기본 문법 연습
 ├── algorithms/               # 알고리즘
 ├── data-structures/          # 자료구조
@@ -84,7 +85,7 @@ npx ts-node filename.ts
 - 완료한 연습 문제 수: 0개
 - TypeScript 학습 시작: 예정
 -->
-  
+
 ## 🔧 개발 환경 설정
 
 ### TypeScript 설정 예시 (tsconfig.json)
@@ -101,8 +102,13 @@ npx ts-node filename.ts
     "outDir": "./dist",
     "rootDir": "./src"
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
 ```
 
