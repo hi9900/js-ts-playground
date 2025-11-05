@@ -1,8 +1,8 @@
 ---
+layout: default
 title: JS Algorithms
 nav_order: 1
 has_children: true     # 이 페이지 아래로 트리 펼치기
-# nav_exclude: false   # (기본값) 이 페이지는 사이드바에 보이게
 ---
 
 # 🎓 Javascript로 끝내는 자료구조와 알고리즘

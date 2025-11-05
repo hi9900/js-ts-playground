@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Intro & JS Basics
 parent: JS Algorithms
 nav_order: 1

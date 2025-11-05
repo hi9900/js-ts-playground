@@ -1,3 +1,7 @@
+---
+nav_exclude: true
+---
+
 # 🎓 {강의명}
 
 > 플랫폼: {Inflearn / Nomadcoders / Fastcampus / Udemy / ...}  

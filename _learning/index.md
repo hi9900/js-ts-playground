@@ -1,10 +1,11 @@
 ---
-title: Home
 layout: default
+title: Learning
+has_children: true
 nav_order: 1
 ---
 
-# 📚 Learning Index
+# 📚 Learning
 
 학습 중/완료 강의 목록입니다.
 

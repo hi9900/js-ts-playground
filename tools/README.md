@@ -1,3 +1,7 @@
+---
+nav_exclude: true
+---
+
 # 🔧 개발 도구 설정
 
 JavaScript와 TypeScript 개발을 위한 도구 설정과 스크립트를 관리하는 폴더입니다.

@@ -1,14 +1,19 @@
-title: JS/TS Playground
-description: JavaScript & TypeScript Playground
+title: JavaScript & TypeScript Playground
+description: JavaScript & TypeScript 학습과 실험을 위한 개인 연습 저장소
 # GitHub Pages에서 remote_theme 사용
 remote_theme: just-the-docs/just-the-docs
 
-# 사이트 기본 설정
+# 기본 설정
 markdown: kramdown
 highlighter: rouge
 
-# 네비게이션(사이드바) 기본
+collections:
+  learning:
+    output: true
+
 just_the_docs:
-  logo: false
-  search_enabled: true
-  nav_sort: case_insensitive
+  collections:
+    learning:
+      name: "Learning"        # 사이드바 컬렉션 제목
+      nav_fold: true          # 폴더 접기/펼치기
+      sort_natural: true
