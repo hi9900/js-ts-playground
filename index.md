@@ -14,10 +14,13 @@ nav_exclude: false
     </div>
   </div>
   <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px;">
-    <a href="/learning/" class="btn btn-primary">📖 Learning</a>
-    <a href="/projects/" class="btn">🧪 Projects</a>
-    <a href="/projects/showcase/" class="btn">🎨 Showcase</a>
+    <a href="/js-ts-playground/learning/" class="btn btn-primary">📖 Learning</a>
+    <a href="/js-ts-playground/projects/" class="btn">🧪 Projects</a>
+
+[//]: # (    <a href="/js-ts-playground/projects/showcase/" class="btn">🎨 Showcase</a>)
+
     <a href="https://github.com/hi9900/js-ts-playground" class="btn" target="_blank" rel="noopener">🔗 GitHub</a>
+
   </div>
 </div>
 
@@ -25,8 +28,8 @@ nav_exclude: false
 
 ## Quick Links
 
-- 📖 [Learning (문서 컬렉션)](/learning/)
-- 🧪 [Projects (문서)](/projects/)
+- 📖 [Learning](/js-ts-playground/learning/)
+- 🧪 [Projects](/js-ts-playground/projects/)
 
 [//]: # (- 🎨 [Showcase &#40;카드형&#41;]&#40;/projects/showcase/&#41;)
 

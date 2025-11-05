@@ -1,3 +1,7 @@
+---
+nav_exclude: true
+---
+
 # 🚀 JavaScript & TypeScript Playground
 
 JavaScript와 TypeScript 학습과 실험을 위한 개인 연습 레포지토리입니다.

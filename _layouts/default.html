@@ -1,0 +1,37 @@
+---
+layout: nil
+---
+
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'ko' }}">
+{% include head.html %}
+
+<body>
+<!-- Skip to main content link for accessibility -->
+<a class="skip-to-main" href="#main-content">Skip to main content</a>
+
+<!-- Header -->
+{% include header.html %}
+
+<div class="page">
+  <!-- Sidebar -->
+  {% include sidebar.html %}
+
+  <!-- Main content -->
+  <main id="main-content" class="main-content" role="main">
+    {{ content }}
+  </main>
+</div>
+
+<!-- Footer -->
+{% include footer.html %}
+
+<!-- Just the Docs JS -->
+<script src="{{ '/assets/js/just-the-docs.js' | relative_url }}?v={{ site.github.build_revision }}"></script>
+
+<!-- Custom JS Hook (optional) -->
+{% if site.custom_js %}
+<script src="{{ site.custom_js | relative_url }}?v={{ site.github.build_revision }}"></script>
+{% endif %}
+</body>
+</html>
