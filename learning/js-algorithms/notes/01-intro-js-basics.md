@@ -1,3 +1,9 @@
+---
+title: Intro & JS Basics
+parent: JS Algorithms
+nav_order: 1
+---
+
 # 코딩 테스트 개요 및 JavaScript 문법
 
 ---

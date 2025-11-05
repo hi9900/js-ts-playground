@@ -1,0 +1,14 @@
+title: JS/TS Playground
+description: JavaScript & TypeScript Playground
+# GitHub Pages에서 remote_theme 사용
+remote_theme: just-the-docs/just-the-docs
+
+# 사이트 기본 설정
+markdown: kramdown
+highlighter: rouge
+
+# 네비게이션(사이드바) 기본
+just_the_docs:
+  logo: false
+  search_enabled: true
+  nav_sort: case_insensitive
