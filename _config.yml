@@ -17,3 +17,6 @@ just_the_docs:
       name: "Learning"        # 사이드바 컬렉션 제목
       nav_fold: true          # 폴더 접기/펼치기
       sort_natural: true
+
+kramdown:
+  toc_levels: 2..3   # H2~H3까지만

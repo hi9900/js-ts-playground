@@ -7,6 +7,15 @@ nav_order: 1
 
 # 코딩 테스트 개요 및 JavaScript 문법
 
+{: .no_toc }
+
+## 목차
+
+{: .no_toc }
+
+- TOC
+  {:toc}
+
 ---
 
 ## 0. 개요
@@ -885,8 +894,8 @@ console.log(x.toFixed(2)); // "123.46" (String 타입)
 5. [1152. 단어의 개수](https://www.acmicpc.net/problem/1152)
 
     - 공백으로 구분된 단어의 개수를 센다.
-
     - 풀이
+
     ```javascript
     const fs = require('fs');
     // const input = fs.readFileSync('/dev/stdin').toString().split('\n');
